@@ -9,16 +9,19 @@ export default function NavbarComponent(){
     const [isScrolled, setIsScrolled] = useState(false)
     const menu: NavbarItem[] = [
         {
-            Icon: <MENU_ICONS.Risk width="24" height="24"/>,
-            Title: 'Risks'
+            Icon: <MENU_ICONS.Risk width="24" height="24" className="w-5 h-5 sm:w-6 sm:h-6"/>,
+            Title: 'Risks',
+            Href: '#video'
         },
         {
-            Icon: <MENU_ICONS.Plain width="24" height="24"/>,
-            Title: 'Pain explained'
+            Icon: <MENU_ICONS.Plain width="24" height="24" className="w-5 h-5 sm:w-6 sm:h-6"/>,
+            Title: 'Pain explained',
+            Href: '#chronic'
         },
         {
-            Icon: <MENU_ICONS.SecondOpinion width="24" height="24"/>,
-            Title: 'Second Opinion'
+            Icon: <MENU_ICONS.SecondOpinion width="24" height="24" className="w-5 h-5 sm:w-6 sm:h-6"/>,
+            Title: 'Second Opinion',
+            Href: '#faq'
         },
     ]
 

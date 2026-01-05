@@ -3,6 +3,7 @@ import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { GTMID, SITE_ENV } from "./constants/global.constants";
 import NavbarComponent from "./components/navbar";
+import FooterComponent from "./components/footer";
 
 export const metadata: Metadata = {
   title: "Know Before You Go - Informed Decisions for Better Health Outcomes",
@@ -39,6 +40,7 @@ export default function RootLayout({
           <div className="min-h-screen">
             <NavbarComponent />
             {children}
+            <FooterComponent />
           </div>
         </div>
       </body>

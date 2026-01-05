@@ -8,7 +8,7 @@ interface GridBlockProps{
 
 export default function GridBlockComponent({Id, GridClass, children}:GridBlockProps){
     return (
-        <Box className={`grid md:grid-cols-2 items-center ${GridClass}`} id={Id}>
+        <Box className={`grid ${GridClass}`} id={Id}>
             {children}
         </Box>
     )
