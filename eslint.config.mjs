@@ -1,30 +1,34 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import js from "@eslint/js";
-import globals from "globals";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
-import pluginReactHooks from "eslint-plugin-react-hooks";
-import prettier from "eslint-config-prettier";
-import pluginPrettier from "eslint-plugin-prettier";
-import fs from "fs";
-import path from "path";
+import { dirname } from "path"
+import { fileURLToPath } from "url"
+import js from "@eslint/js"
+import globals from "globals"
+import tseslint from "typescript-eslint"
+import pluginReact from "eslint-plugin-react"
+import pluginReactHooks from "eslint-plugin-react-hooks"
+import prettier from "eslint-config-prettier"
+import pluginPrettier from "eslint-plugin-prettier"
+import fs from "fs"
+import path from "path"
 
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
+import { defineConfig, globalIgnores } from "eslint/config"
+import nextVitals from "eslint-config-next/core-web-vitals"
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
-let prettierConfig = {};
+let prettierConfig = {}
 try {
-  prettierConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, "./.prettierrc"), "utf8"));
+  prettierConfig = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, "./.prettierrc"), "utf8"),
+  )
 } catch (e) {
-  console.warn("Warning: .prettierrc not found, using default prettier rules.", e);
+  console.warn(
+    "Warning: .prettierrc not found, using default prettier rules.",
+    e,
+  )
 }
 
 export default defineConfig([
-
   ...nextVitals,
 
   globalIgnores([
@@ -37,7 +41,7 @@ export default defineConfig([
 
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-  
+
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       react: pluginReact,
@@ -63,14 +67,17 @@ export default defineConfig([
     },
     rules: {
       ...js.configs.recommended.rules,
-      ...tseslint.configs.recommended[0].rules,
+      ...tseslint.configs.recommended.reduce(
+        (acc, config) => ({ ...acc, ...config.rules }),
+        {},
+      ),
       ...pluginReact.configs.recommended.rules,
       ...pluginReactHooks.configs.recommended.rules,
-      
-    
+
       "prettier/prettier": ["warn", prettierConfig],
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
+      "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "@typescript-eslint/no-unused-vars": [
         "warn",
@@ -79,4 +86,4 @@ export default defineConfig([
     },
   },
   prettier,
-]);
+])
