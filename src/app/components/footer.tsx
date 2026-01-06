@@ -2,13 +2,14 @@ import { Box, Link, Text } from "@radix-ui/themes"
 import GridBlockComponent from "./gridBlock"
 import { NEWTAB_ICON } from "../constants/icon.constants"
 import Image from "next/image"
+import BoxMotionComponent from "./boxMotion"
 
 export default function FooterComponent() {
   return (
     <footer className="bg-white border-t border-gray-200">
       <Box as="div" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <GridBlockComponent GridClass="md:grid-cols-2 gap-8 items-center">
-          <Box as="div" style={{ opacity: 1, transform: "none" }}>
+          <BoxMotionComponent as="div" type="UP">
             <Link
               target="_blank"
               rel="noopener noreferrer"
@@ -26,8 +27,8 @@ export default function FooterComponent() {
             <Text as="p" className="mt-4 text-gray-600">
               An initiative of the Workers Insurance Association of NSW
             </Text>
-          </Box>
-          <Box className="space-y-4" style={{ opacity: 1, transform: "none" }}>
+          </BoxMotionComponent>
+          <BoxMotionComponent className="space-y-4" type="UP">
             <Box className="bg-gray-50 p-4 rounded-lg">
               <Text className="text-sm text-gray-600">
                 <Box as="span" className="font-bold">
@@ -53,7 +54,7 @@ export default function FooterComponent() {
                 <NEWTAB_ICON width="24" height="24" className="w-4 h-4" />
               </Link>
             </Box>
-          </Box>
+          </BoxMotionComponent>
         </GridBlockComponent>
       </Box>
     </footer>

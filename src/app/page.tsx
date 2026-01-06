@@ -1,4 +1,4 @@
-import { Box, DataList, Heading, Link, Text } from "@radix-ui/themes"
+import { Box, DataList, Heading, Text } from "@radix-ui/themes"
 import GridBlockComponent from "./components/gridBlock"
 import HomepageBanner from "./components/homepageBanner"
 import SectionBlockComponent from "./components/sectionBlock"
@@ -14,6 +14,7 @@ import {
   spinalFusionVideoURL,
 } from "./constants/homepage.constants"
 import { INFO_ICON, NEWTAB_ICON } from "./constants/icon.constants"
+import BoxMotionComponent from "./components/boxMotion"
 
 export default function Home() {
   return (
@@ -41,17 +42,14 @@ export default function Home() {
         RootClass="relative py-20 bg-[#F0F0F0]"
         ChildClass="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <Box
-          className="text-center mb-12"
-          style={{ opacity: 1, transform: "none" }}
-        >
+        <BoxMotionComponent type="UP" className="text-center mb-12">
           <Heading className="text-4xl font-bold text-primary mb-4" as="h2">
             What to expect after fusion surgery
           </Heading>
-        </Box>
+        </BoxMotionComponent>
         <GridBlockComponent GridClass="md:grid-cols-2 gap-12 items-center">
           <VideoPlayerComponent url={postOpExpectationVideoURL} />
-          <Box className="space-y-6" style={{ opacity: 1, transform: "none" }}>
+          <BoxMotionComponent className="space-y-6" type="LEFT">
             <Box className="bg-white p-6 rounded-xl shadow-md">
               <Heading
                 as="h3"
@@ -77,7 +75,7 @@ export default function Home() {
                   ))}
               </DataList.Root>
             </Box>
-          </Box>
+          </BoxMotionComponent>
         </GridBlockComponent>
       </SectionBlockComponent>
 
@@ -86,10 +84,7 @@ export default function Home() {
         RootClass="relative py-12 bg-white"
         ChildClass="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <Box
-          className="text-center mb-12"
-          style={{ opacity: 1, transform: "none" }}
-        >
+        <BoxMotionComponent type="UP" className="text-center mb-12">
           <Heading as="h2" className="text-4xl font-bold text-primary mb-4">
             Get a second opinion
           </Heading>
@@ -98,7 +93,7 @@ export default function Home() {
             surgeons aren't worried that you're seeking a second opinion, they'd
             rather have their opinion confirmed by another surgeon.`}
           </Text>
-        </Box>
+        </BoxMotionComponent>
 
         <GridBlockComponent GridClass="md:grid-cols-2 gap-12 mb-16 items-center">
           <VideoPlayerComponent url={riskVideoURL} />
@@ -108,9 +103,9 @@ export default function Home() {
         <GridBlockComponent GridClass="md:grid-cols-2 gap-8 grid-cols-1">
           {gridFaqList &&
             gridFaqList.map((item, key) => (
-              <Box
+              <BoxMotionComponent
                 key={key}
-                style={{ opacity: 1, transform: "none" }}
+                type="UP"
                 className="bg-[#F0F0F0] p-6 rounded-xl hover:shadow-lg transition-shadow"
               >
                 {item.icon}
@@ -121,20 +116,19 @@ export default function Home() {
                   {item.title}
                 </Heading>
                 <Text className="text-gray-600">{item.desc}</Text>
-              </Box>
+              </BoxMotionComponent>
             ))}
         </GridBlockComponent>
 
         <GridBlockComponent GridClass="md:grid-cols-1 gap-8 p-8 items-center">
-          <Box
-            as="div"
+          <BoxMotionComponent
+            type="LEFT"
             className="flex items-center justify-center"
-            style={{ opacity: 1, transform: "none" }}
           >
             <Text className="text-2xl sm:text-3xl font-semibold text-primary text-center">
               {`Your successful recovery is everyone's primary goal!`}
             </Text>
-          </Box>
+          </BoxMotionComponent>
         </GridBlockComponent>
       </SectionBlockComponent>
 
@@ -171,14 +165,16 @@ export default function Home() {
           className="space-y-12"
           style={{ opacity: 1, transform: "none" }}
         >
-          <Box>
+          <BoxMotionComponent type="UP">
             <Heading as="h2" className="text-3xl font-bold text-primary mb-8">
               Research Evidence
             </Heading>
             <Box as="div" className="space-y-4">
               {researchEvidenceList &&
                 researchEvidenceList.map((item, key) => (
-                  <Link
+                  <BoxMotionComponent
+                    as="a"
+                    type="RIGHT"
                     key={key}
                     rel="noopener noreferrer"
                     target="_blank"
@@ -188,10 +184,10 @@ export default function Home() {
                   >
                     <NEWTAB_ICON width="24" height="24" className="w-5 h-5" />
                     {item.text}
-                  </Link>
+                  </BoxMotionComponent>
                 ))}
             </Box>
-          </Box>
+          </BoxMotionComponent>
         </Box>
       </SectionBlockComponent>
     </Box>
