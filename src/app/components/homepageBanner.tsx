@@ -62,7 +62,7 @@ export default function HomepageBanner() {
                 </Box>
               </h1>
               <BlockquoteComponent
-                image="https://icon2.cleanpng.com/20180607/hrb/kisspng-university-of-sydney-brain-and-mind-centre-darling-5b18f2227c7ba0.7750607215283615065099.jpg"
+                image="/assets/images/the-university-of-sydney-3.svg"
                 subject="University of Sydney"
                 quote="Spinal fusion is the riskiest type of surgery for back pain."
               />

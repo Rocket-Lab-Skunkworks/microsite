@@ -22,7 +22,7 @@ export default function BlockquoteComponent({
               alt={subject || ""}
               width="24"
               height="24"
-              className="h-8 w-auto"
+              className="h-8 w-auto bg-white p-1.5"
             />
           )}
           {subject && <Box as="span">{subject}</Box>}
