@@ -17,7 +17,8 @@ export default function NavbarComponent() {
         />
       ),
       Title: "Risks",
-      Href: "#video",
+      // Href: "#video",
+      Href: "/risks",
     },
     {
       Icon: (
@@ -28,7 +29,8 @@ export default function NavbarComponent() {
         />
       ),
       Title: "Pain explained",
-      Href: "#chronic",
+      // Href: "#chronic",
+      Href: "/pain-explained",
     },
     {
       Icon: (
@@ -39,7 +41,8 @@ export default function NavbarComponent() {
         />
       ),
       Title: "Second Opinion",
-      Href: "#faq",
+      // Href: "#faq",
+      Href: "/second-opinion",
     },
   ]
 
@@ -63,7 +66,7 @@ export default function NavbarComponent() {
       <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Box className="flex justify-between items-center h-16 md:h-20">
           <Link
-            href="#"
+            href="/"
             className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-secondary/50 rounded-lg p-1"
           >
             <LOGO_ICON width="24" height="24" className="text-secondary" />
