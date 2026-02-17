@@ -36,12 +36,25 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Deployment (Netlify)
 
-This project is deployed on Netlify. Typical settings:
+This project is deployed on Netlify.
 
-- **Build command:** `pnpm build`
-- **Publish directory:** `/.next`
+### Step-by-step
 
-If you are using Next.js on Netlify, ensure the Next.js runtime is enabled per Netlify’s docs.
+1. Push the repository to GitHub/GitLab/Bitbucket.
+2. In Netlify, click **Add new site** → **Import an existing project**.
+3. Connect your Git provider and select this repository.
+4. Configure the build settings:
+   - **Build command:** `pnpm build`
+   - **Publish directory:** `/.next`
+5. Click **Deploy site**.
+6. After the first deploy, verify:
+   - The site loads correctly on the Netlify URL.
+   - Any environment variables required by the app are set.
+
+### Notes
+
+- Ensure the Next.js runtime is enabled in Netlify (per their Next.js guide).
+- If using a custom domain, configure it in **Domain management** and update DNS.
 
 ## Learn More
 
